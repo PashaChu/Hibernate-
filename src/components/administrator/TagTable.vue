@@ -103,7 +103,7 @@ export default {
  methods: {
       async getTags() {
         try {
-          const response = await fetch('http://localhost:8080/table/tags');
+          const response = await fetch('http://localhost:8080/tags/table');
           const data = await response.json();
           this.tags = data;
         } catch (error) {
@@ -113,7 +113,7 @@ export default {
         async deleteTag(tagId) {
           event.stopPropagation();
           try {
-            await fetch(`http://localhost:8080/table/tags/${tagId}`, {
+            await fetch(`http://localhost:8080/tags/table/${tagId}`, {
               method: 'DELETE',
               headers: {
                 'Content-Type': 'application/json',
@@ -129,7 +129,7 @@ export default {
           this.tagData[field] = event.target.innerText;
         },
         addTag() {
-          fetch("http://localhost:8080/table/tags", {
+          fetch("http://localhost:8080/tags/table", {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
@@ -161,7 +161,7 @@ export default {
         },
         async updateTag() {
           try {
-            const response = await fetch('http://localhost:8080/table/tags', {
+            const response = await fetch('http://localhost:8080/tags/table', {
               method: 'PATCH',
               headers: {
                 'Content-Type': 'application/json',
@@ -182,7 +182,7 @@ export default {
     },
  mounted(){
       this.getTags();
-      fetch("http://localhost:8080/table/posts")
+      fetch("http://localhost:8080/posts/table")
       .then((response) => response.json())
       .then((data) => {
       this.postIds = data;
