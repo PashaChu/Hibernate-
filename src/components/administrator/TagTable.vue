@@ -117,7 +117,6 @@ export default {
               method: 'DELETE',
               headers: {
                 'Content-Type': 'application/json',
-
               },
             });
             this.getTags();
@@ -135,7 +134,7 @@ export default {
               "Content-Type": "application/json"
             },
             body: JSON.stringify({
-              name: this.tagData.name,
+              text: this.tagData.name,
               post: {id: this.tagData.post_id}
             })
           })
@@ -143,6 +142,7 @@ export default {
             .then(data => {
               this.getTags();
               console.log(data);
+              console.log("tag: " + this.tagData.name);
             })
             .catch(error => {
               console.error(error);
