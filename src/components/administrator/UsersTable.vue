@@ -109,7 +109,7 @@ export default {
  methods: {
       async getUsers() {
         try {
-          const response = await fetch("http://localhost:8080/table/users");
+          const response = await fetch('http://localhost:8080/users/table');
           const data = await response.json();
           this.users = data;
         } catch (error) {
@@ -119,7 +119,7 @@ export default {
         async deleteUser(userId) {
           event.stopPropagation();
           try {
-            await fetch(`http://localhost:8080/table/users/${userId}`, {
+            await fetch(`http://localhost:8080/users/table/${userId}`, {
               method: 'DELETE',
               headers: {
                 'Content-Type': 'application/json',
@@ -134,7 +134,7 @@ export default {
           this.userData[field] = event.target.innerText;
         },
         addUser() {
-          fetch("http://localhost:8080/table/users", {
+          fetch("http://localhost:8080/users/table", {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
@@ -165,7 +165,7 @@ export default {
         },
         async updateUser() {
           try {
-            const response = await fetch('http://localhost:8080/table/users', {
+            const response = await fetch('http://localhost:8080/users/table', {
               method: 'PATCH',
               headers: {
                 'Content-Type': 'application/json',

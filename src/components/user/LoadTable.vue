@@ -70,7 +70,7 @@ export default {
     },
  methods: {
       getPosts() {
-        fetch('http://localhost:8080/table/users')
+        fetch('http://localhost:8080/users/table')
         .then(response => {
           if (!response.ok) {
             throw new Error('Network response was not ok');

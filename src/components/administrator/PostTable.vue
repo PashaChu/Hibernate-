@@ -113,7 +113,7 @@ export default {
  methods: {
       async getPosts() {
         try {
-          const response = await fetch('http://localhost:8080/table/posts');
+          const response = await fetch('http://localhost:8080/posts/table');
           const data = await response.json();
           this.posts = data;
         } catch (error) {
@@ -123,7 +123,7 @@ export default {
         async deletePost(postId) {
           event.stopPropagation();
           try {
-            await fetch(`http://localhost:8080/table/posts/${postId}`, {
+            await fetch(`http://localhost:8080/posts/table/${postId}`, {
               method: 'DELETE',
               headers: {
                 'Content-Type': 'application/json',
@@ -139,7 +139,7 @@ export default {
           this.postData[field] = event.target.innerText;
         },
         addPost() {
-          fetch("http://localhost:8080/table/posts", {
+          fetch("http://localhost:8080/posts/table", {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
@@ -172,7 +172,7 @@ export default {
         },
         async updatePost() {
           try {
-            const response = await fetch('http://localhost:8080/table/posts', {
+            const response = await fetch('http://localhost:8080/posts/table', {
               method: 'PATCH',
               headers: {
                 'Content-Type': 'application/json',
@@ -193,7 +193,7 @@ export default {
     },
  mounted(){
       this.getPosts();
-      fetch("http://localhost:8080/table/users")
+      fetch("http://localhost:8080/users/table")
       .then((response) => response.json())
       .then((data) => {
       this.userIds = data;

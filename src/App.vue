@@ -1,9 +1,9 @@
 <script setup>
-import MainPageHeader from './components/user/Menu.vue';
+import Menu from './components/user/Menu.vue';
 </script>
 
 <template>
-  <MainPageHeader/>
+  <Menu/>
   <router-view></router-view>
 </template>
 
